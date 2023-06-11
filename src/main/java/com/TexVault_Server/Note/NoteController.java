@@ -27,4 +27,10 @@ public class NoteController {
         Long nb_id = Long.parseLong(nbId);
         noteService.addNewNote(new Note(note_name, nb_id));
     }
+
+    @DeleteMapping("/delete")
+    public void deleteNote(@RequestParam("note_id") String note_id){
+        Long Note_id = Long.parseLong(note_id);
+        noteService.deleteNote(Note_id);
+    }
 }

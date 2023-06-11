@@ -25,4 +25,10 @@ public class NoteBookController {
     public void createNoteBook(@RequestParam("nb_name") String nb_name){
         noteBookService.addNewNoteBook(new NoteBook(nb_name));
     }
+
+    @DeleteMapping("/delete")
+    public void deleteNoteBook(@RequestParam("nb_id") String nb_id){
+        Long NoteBook_id = Long.parseLong(nb_id);
+        noteBookService.deleteNoteBook(NoteBook_id);
+    }
 }

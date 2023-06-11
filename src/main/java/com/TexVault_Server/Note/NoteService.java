@@ -28,4 +28,14 @@ public class NoteService {
         }
         noteRepository.save(n);
     }
+
+    public void deleteNote(Long note_id){
+        boolean exists = noteRepository.existsById(note_id);
+        if (!exists) {
+            throw new IllegalStateException("note with id "+note_id+" does not exist");
+        }
+        else{
+            noteRepository.deleteById(note_id);
+        }
+    }
 }

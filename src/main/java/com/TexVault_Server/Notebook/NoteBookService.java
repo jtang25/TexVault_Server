@@ -30,4 +30,14 @@ public class NoteBookService {
         }
         noteBookRepository.save(nb);
     }
+
+    public void deleteNoteBook(Long nb_id){
+        boolean exists = noteBookRepository.existsById(nb_id);
+        if (!exists) {
+            throw new IllegalStateException("notebook with id "+nb_id+" does not exist");
+        }
+        else{
+            noteBookRepository.deleteById(nb_id);
+        }
+    }
 }
