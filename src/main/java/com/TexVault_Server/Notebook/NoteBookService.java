@@ -22,4 +22,12 @@ public class NoteBookService {
     public Optional<NoteBook> getNoteBookById(String nb_id){
         return noteBookRepository.findNoteBookByNb_id(nb_id);
     }
+
+    public void addNewNoteBook(NoteBook nb){
+        Optional<NoteBook> noteBookOptional = noteBookRepository.findNoteBookByName(nb.getNb_name());
+        if (noteBookOptional.isPresent()){
+            throw new IllegalStateException("name taken");
+        }
+        noteBookRepository.save(nb);
+    }
 }

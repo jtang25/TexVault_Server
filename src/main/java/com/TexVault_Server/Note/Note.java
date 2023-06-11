@@ -25,6 +25,11 @@ public class Note {
     public Note() {
     }
 
+    public Note(String note_name, Long nb_id) {
+        this.note_name = note_name;
+        this.nb_id = nb_id;
+    }
+
     public Note(String note_name, Long nb_id, String note_text) {
         this.note_name = note_name;
         this.nb_id = nb_id;

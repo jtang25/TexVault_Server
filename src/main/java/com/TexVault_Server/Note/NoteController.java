@@ -3,10 +3,7 @@ package com.TexVault_Server.Note;
 import com.TexVault_Server.Notebook.NoteBook;
 import com.TexVault_Server.Notebook.NoteBookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,11 @@ public class NoteController {
     public List<Note> getNotes(@RequestParam("nb_id") String nbId){
         Long nb_id = Long.parseLong(nbId);
         return noteService.getNotes(nb_id);
+    }
+
+    @PutMapping("/addNew")
+    public void createNoteBook(@RequestParam("note_name") String note_name, @RequestParam("nb_id") String nbId) {
+        Long nb_id = Long.parseLong(nbId);
+        noteService.addNewNote(new Note(note_name, nb_id));
     }
 }
