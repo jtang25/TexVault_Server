@@ -4,7 +4,7 @@ import com.TexVault_Server.Notebook.NoteBook;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="note")
+@Table(name="notes")
 public class Note {
     @Id
     @SequenceGenerator(
@@ -56,7 +56,7 @@ public class Note {
         return this.nb_id;
     }
 
-    public void setNb(Long nb_id) {
+    public void setNb_Id(Long nb_id) {
         this.nb_id = nb_id;
     }
 

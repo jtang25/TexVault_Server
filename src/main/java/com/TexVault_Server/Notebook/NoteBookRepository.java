@@ -12,7 +12,10 @@ import java.util.Optional;
 public interface NoteBookRepository extends JpaRepository<NoteBook, Long> {
 
     @Query("SELECT n FROM NoteBook n WHERE n.nb_id = ?1")
-    Optional<NoteBook> findNoteBookByNb_id(String nb_id);
+    Optional<NoteBook> findNoteBookByNb_id(Long nb_id);
+
+    @Query("SELECT n FROM NoteBook n WHERE n.nb_id = ?1")
+    NoteBook getNoteBookByNb_id(Long nb_id);
 
     @Query("SELECT n FROM NoteBook n WHERE n.nb_name = ?1")
     Optional<NoteBook> findNoteBookByName(String nb_name);

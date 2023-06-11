@@ -23,12 +23,19 @@ public class NoteBook {
     )
     private Long nb_id;
     private String nb_name;
+    private String nb_desc;
 
     public NoteBook() {
     }
 
     public NoteBook(String nb_name) {
         this.nb_name = nb_name;
+        this.nb_desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
+    }
+
+    public NoteBook(String nb_name, String nb_desc) {
+        this.nb_name = nb_name;
+        this.nb_desc = nb_desc;
     }
 
     public Long getNb_id() {
@@ -45,6 +52,14 @@ public class NoteBook {
 
     public void setNb_name(String nb_name) {
         this.nb_name = nb_name;
+    }
+
+    public String getNb_description() {
+        return nb_desc;
+    }
+
+    public void setNb_description(String nb_desc) {
+        this.nb_desc = nb_desc;
     }
 
     @Override
