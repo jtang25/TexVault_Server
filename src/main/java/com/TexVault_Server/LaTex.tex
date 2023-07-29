@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+
+\title{a}
+\author{Jason Tang}
+\date{May 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction to Gradient Vectors}
+1. Computing the partial derivatives of the gradient,
+\begin{align*}
+f(x,y)
+&= -(\cos^2(x)+\cos^2(y))^2 \\
+&= -(\cos(x)\cdot \cos(x) + \cos(y)\cdot \cos(y))^2 \\
+\frac{\partial f}{\partial x}
+&(-(\cos^2(x)+\cos^2(-20))^2) \\
+&= -2(\cos^2x+\cos^2(-20))\cdot -\sin(2x)\\
+\frac{\partial f}{\partial y}
+&(-(\cos^2(y)+\cos^2(-20))^2) \\
+&= -2(\cos^2y+\cos^2(-20))\cdot -\sin(2y)\\
+\frac{\partial^2f}{\partial x\partial y}
+&= \begin{pmatrix}
+    \frac{\partial f}{\partial x}=-2(\cos^2x+\cos^2(-20))\cdot -\sin(2x) \\
+    \frac{\partial f}{\partial y}= -2(\cos^2y+\cos^2(-20))\cdot -\sin(2y)
+\end{pmatrix}
+\end{align*}
+2. Gradient at $(\textbf{x,y}) = (-20, -20)$:
+\begin{align*}
+\frac{\partial f}{\partial x}
+&(-(\cos^2(x)+\cos^2(-20))^2) \\
+&= -2(\cos^2x+\cos^2(-20))\cdot -\sin(2x)\\
+&= -0.5 \\
+\frac{\partial f}{\partial y}
+&(-(\cos^2(y)+\cos^2(-20))^2) \\
+&= -2(\cos^2y+\cos^2(-20))\cdot -\sin(2y)\\
+&= -0.5 \\
+\end{align*}
+$$\therefore \nabla f(x,y) = \begin{bmatrix}-0.5 \\ -0.5 \end{bmatrix}$$
+\end{document}
