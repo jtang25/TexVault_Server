@@ -32,11 +32,11 @@ public class NoteBookController {
     @GetMapping("/getPdf")
     public ResponseEntity<InputStreamResource> generatePDF(@RequestParam("text") String text) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("C:/Users/Jason_yj4bjfp/Downloads/TexVault_Server/src/main/java/com/TexVault_Server/LaTex.tex"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("/TexVault_Server/LaTex.tex"));
             bw.write(text);
             bw.close();
             ProcessBuilder pb = new ProcessBuilder("pdflatex", "-synctex=1","-interaction=batchmode", "LaTeX.tex");
-            pb.directory(new File("/Users/Jason_yj4bjfp/Downloads/TexVault_Server/src/main/java/com/TexVault_Server"));
+            pb.directory(new File("/TexVault_Server"));
             pb.redirectErrorStream(true);
 
             Process p = pb.start();
@@ -55,7 +55,7 @@ public class NoteBookController {
 
             if (exitCode == 0) {
                 // Successful generation of PDF
-                File pdfFile = new File("/Users/Jason_yj4bjfp/Downloads/TexVault_Server/src/main/java/com/TexVault_Server/LaTeX.pdf");
+                File pdfFile = new File("/TexVault_Server/LaTeX.pdf");
                 InputStreamResource resource = new InputStreamResource(pdfFile.toURI().toURL().openStream());
 
                 HttpHeaders headers = new HttpHeaders();
